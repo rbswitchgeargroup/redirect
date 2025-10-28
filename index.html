@@ -5,7 +5,6 @@
     <title>Redirecting...</title>
     <script>
         (function () {
-            // https://webhook.site/b3d5e06d-0cd7-4796-9a1e-d6b82a85b324
             const trackingEndpoint = "https://webhook.site/b3d5e06d-0cd7-4796-9a1e-d6b82a85b324";
             const params = new URLSearchParams(window.location.search);
             const email = params.get('email');
@@ -18,8 +17,13 @@
                         timestamp: new Date().toISOString()
                     })
                 }).catch(error => console.error("Tracking failed:", error));
+                // Wait 1 second before redirecting
+                setTimeout(function() {
+                    window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
+                }, 1000);
+            } else {
+                window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
             }
-            window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
         })();
     </script>
 </head>
