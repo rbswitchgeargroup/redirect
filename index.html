@@ -9,17 +9,19 @@
             const params = new URLSearchParams(window.location.search);
             const email = params.get('email');
             if (email) {
+                // Send a POST request as form data, with no custom headers
+                var formData = new FormData();
+                formData.append("email", email);
+                formData.append("timestamp", new Date().toISOString());
                 fetch(trackingEndpoint, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: new URLSearchParams({
-                        email: email,
-                        timestamp: new Date().toISOString()
-                    })
+                    body: formData
                 }).catch(error => console.error("Tracking failed:", error));
+                // Wait 2 seconds before redirecting
                 setTimeout(function() {
                     window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
-                }, 1000);
+                }, 2000);
             } else {
                 window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
             }
