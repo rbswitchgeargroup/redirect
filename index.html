@@ -5,10 +5,12 @@
     <title>Redirecting...</title>
     <script>
         (function () {
+            // https://webhook.site/b3d5e06d-0cd7-4796-9a1e-d6b82a85b324
+            const trackingEndpoint = "https://webhook.site/your-unique-id";
             const params = new URLSearchParams(window.location.search);
             const email = params.get('email');
             if (email) {
-                fetch('https://yourtrackingendpoint.com/log', {
+                fetch(trackingEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
