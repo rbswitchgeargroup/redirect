@@ -11,13 +11,13 @@
             if (email) {
                 fetch(trackingEndpoint, {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         email: email,
                         timestamp: new Date().toISOString()
                     })
                 }).catch(error => console.error("Tracking failed:", error));
-                // Wait 1 second before redirecting
                 setTimeout(function() {
                     window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
                 }, 1000);
