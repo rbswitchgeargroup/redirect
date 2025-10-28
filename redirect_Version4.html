@@ -5,11 +5,8 @@
     <title>Redirecting...</title>
     <script>
         (function () {
-            // Get email from query string (UTM parameter)
             const params = new URLSearchParams(window.location.search);
             const email = params.get('email');
-
-            // If email exists, send it to your tracking endpoint
             if (email) {
                 fetch('https://yourtrackingendpoint.com/log', {
                     method: 'POST',
@@ -20,8 +17,6 @@
                     })
                 }).catch(error => console.error("Tracking failed:", error));
             }
-
-            // Redirect immediately to Microsoft Form
             window.location.replace("https://forms.office.com/Pages/ResponsePage.aspx?id=35vxefefu02X-mSuwGIMc5eb0pYvMJVLubxnfka86TBUMzRFMVUzVDU3WFQ4OEFNMUNZOVU4QU9VSS4u");
         })();
     </script>
